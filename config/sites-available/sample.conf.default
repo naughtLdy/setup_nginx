@@ -4,7 +4,7 @@ upstream front {
 
 server {
     listen       80;
-    server_name  www.exsample.com;
+    server_name  www.example.com;
 
     access_log /var/log/nginx/access.log  main;
     error_log /var/log/nginx/error.log  notice;
