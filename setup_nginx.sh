@@ -50,16 +50,14 @@ if [ "$1" = '--install' ]; then
   echo "Install success!!"
 
 elif [ "$1" = '--config' ]; then
-  cp -r front/conf $nginx_install_path
-  cp -r front/sites-available $nginx_install_path
-  cp -r front/sites-enabled $nginx_install_path
+  cp -r config/conf $nginx_install_path
+  cp -r config/sites-available $nginx_install_path
+  mkdir $nginx_install_path/sites-enabled
 
-  echo "'$nginx_install_path/ssl'にSSLサーバ証明書を設置して、'/etc/init.d/nginx start'を実行してください"
+  echo "必要に応じて '$nginx_install_path/ssl' にSSLサーバ証明書を設置し、'/etc/init.d/nginx start'を実行してください"
 
-  # 自動起動登録(debian only)
-  insserv nginx
-  systemctl enable nginx
-  systemctl start nginx
+  # settings for auto start 
+  update-rc.d nginx defaults 
 
 elif [ "$1" = '--reinstall'  ]; then
     /etc/init.d/nginx stop
