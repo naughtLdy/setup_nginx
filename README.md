@@ -1,6 +1,6 @@
-# setup_nignx
+# setup_nginx
 
-Shellscript for install and setup nginx
+Shellscript for install and setup nginx from source
 
 ## usage
 
